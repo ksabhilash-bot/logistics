@@ -86,14 +86,14 @@ export default function Navbar() {
             {/* CTA Button - Desktop */}
             <div className="hidden md:block">
               <a
-                href="#quote"
+                href="#contact"
                 className={`font-outfit font-semibold text-sm px-6 py-2.5 rounded-full transition-all duration-300 ${
                   isTransparent
                     ? "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
                     : "bg-slate-900 text-white hover:bg-blue-600 shadow-md hover:shadow-blue-500/20"
                 }`}
               >
-                Get Quote
+                Get in Touch
               </a>
             </div>
 

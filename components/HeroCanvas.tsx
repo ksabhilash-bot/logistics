@@ -233,11 +233,11 @@ export default function HeroCanvas() {
           >
             <motion.h1
               variants={itemVariants}
-              className="font-outfit font-extrabold text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-slate-900"
+              className="font-outfit font-extrabold text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-white"
             >
               Moving India Forward.
               <br />
-              <span className="text-black">Reliable Logistics.</span>
+              <span className="text-zinc-400">Reliable Logistics.</span>
               <br />
               Trusted Delivery.
             </motion.h1>
