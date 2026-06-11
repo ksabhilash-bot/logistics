@@ -18,7 +18,12 @@ export default function HeroCanvas() {
   const textOverlayRef = useRef<HTMLDivElement>(null);
   const currentFrameIndexRef = useRef<number>(151);
 
-  const { images, progress: loadProgress, loading: isLoading, error } = useTruckSequence(151);
+  const {
+    images,
+    progress: loadProgress,
+    loading: isLoading,
+    error,
+  } = useTruckSequence(151);
 
   // Helper to draw a frame on the canvas with "cover" aspect-ratio fit
   const drawFrame = (index: number) => {
@@ -92,7 +97,10 @@ export default function HeroCanvas() {
           const totalFrames = 150;
           const targetFrame = Math.max(
             1,
-            Math.min(totalFrames, Math.round(totalFrames - scrollProgress * (totalFrames - 1)))
+            Math.min(
+              totalFrames,
+              Math.round(totalFrames - scrollProgress * (totalFrames - 1)),
+            ),
           );
 
           currentFrameIndexRef.current = targetFrame;
@@ -107,10 +115,11 @@ export default function HeroCanvas() {
             const textProgress = Math.min(1, scrollProgress / 0.25);
             const opacity = 1 - textProgress;
             const translateY = -60 * textProgress;
-            
+
             textOverlayRef.current.style.opacity = opacity.toString();
             textOverlayRef.current.style.transform = `translateY(${translateY}px)`;
-            textOverlayRef.current.style.pointerEvents = opacity < 0.1 ? "none" : "auto";
+            textOverlayRef.current.style.pointerEvents =
+              opacity < 0.1 ? "none" : "auto";
           }
         },
       });
@@ -178,9 +187,12 @@ export default function HeroCanvas() {
     },
   };
 
-
   return (
-    <div id="home" ref={containerRef} className="relative w-full h-[350vh] bg-white">
+    <div
+      id="home"
+      ref={containerRef}
+      className="relative w-full h-[350vh] bg-white"
+    >
       {/* Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white px-6">
@@ -246,7 +258,8 @@ export default function HeroCanvas() {
               variants={itemVariants}
               className="font-inter font-normal text-base sm:text-xl text-white max-w-2xl"
             >
-              Efficient transport solutions connecting businesses across the nation. Experience the cinematic power of precision dispatch.
+              Efficient transport solutions connecting businesses across the
+              nation. Experience the cinematic power of precision dispatch.
             </motion.p>
 
             <motion.div
@@ -281,7 +294,11 @@ export default function HeroCanvas() {
               </span>
               <motion.div
                 animate={{ y: [0, 6, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.5,
+                  ease: "easeInOut",
+                }}
               >
                 <ArrowDown className="w-5 h-5 text-blue-600" />
               </motion.div>
